@@ -1,0 +1,17 @@
+version: '3'
+services:
+  hexo:
+    build:
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+        USER: ${USER}
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./<blog-source-dir>:/blog
+      - $HOME/.ssh:/mnt/.ssh:ro
+    environment:
+      - GIT_EMAIL=<your-email@example.com>
+      - GIT_USERNAME=<your-username>
+    command: ["hexo", "server"]
