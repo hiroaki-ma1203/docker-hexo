@@ -9,7 +9,7 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ./<blog-source-dir>:/blog
+      - ../<blog-source-dir>:/blog
       - $HOME/.ssh:/mnt/.ssh:ro
     environment:
       - GIT_EMAIL=<your-email@example.com>

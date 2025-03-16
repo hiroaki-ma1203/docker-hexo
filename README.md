@@ -34,7 +34,7 @@ A sample tree structure is shown below:
 
     ```yaml
     volumes:
-        - ./<blog-source-dir>:/blog
+        - ../<blog-source-dir>:/blog
     environment:
         - GIT_EMAIL=<your-email@example.com>
         - GIT_USERNAME=<your-username>
