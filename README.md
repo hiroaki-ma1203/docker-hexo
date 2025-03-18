@@ -11,7 +11,7 @@ The configuration includes volume mounts for your blog source files and SSH dire
 
 ## Directory tree structure
 
-A sample tree structure is shown below:
+A sample directory tree structure is shown below:
 
 ```text
 /home
@@ -82,13 +82,21 @@ A sample tree structure is shown below:
 
 ### Development
 
-To start the Hexo development server:
+1. To start the Hexo development server:
 
-```bash
-docker compose -f docker-hexo/docker-compose.yml up
-```
+    ```bash
+    docker compose -f docker-hexo/docker-compose.yml up
+    ```
 
-The blog will be available at <http://localhost:4000>
+    The blog will be available at <http://localhost:4000>
+
+1. To start the Hexo development server on a draft:
+
+    ```bash
+    HEXO_ARGS="--draft" docker compose -f docker-hexo/docker-compose.yml up
+    ```
+
+    The blog will be available at <http://localhost:4000>
 
 ### Deployment
 
@@ -113,24 +121,26 @@ The blog will be available at <http://localhost:4000>
 1. Or combine generate and deploy:
 
     ```bash
-    docker compose run --rm hexo hexo generate --deploy
+    hexo generate --deploy
     ```
 
-### Add new draft or post
+### Add new post or new draft
 
-1. Add new Post
+1. Add new post
 
     ```bash
     hexo new "title"
     ```
 
-1. Add new draft
+1. Add new draft and publish
+
+    Add a draft.
 
     ```bash
     hexo new draft "title"
     ```
 
-1. Publish draft
+    Publish the draft.
 
     ```bash
     hexo publish draft "title"
